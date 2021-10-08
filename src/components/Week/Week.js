@@ -1,24 +1,40 @@
 import React from "react";
 
-import './week.scss'
+import "./week.scss";
 
-const Week = () => {
+const Week = (props) => {
+  console.log(props);
   return (
     <div className="week container">
       <div className="week-inner">
-        <div className="week__item">
-          <p className="week__item-date">четверг</p>
-          <img className="week__item-img" src="img/clouds.svg" alt="" />
-          <div className="week__item-temps">
-            <p className="week__item-temp">10°</p>
-            <span>—</span>
-            <p className="week__item-temp">20°</p>
+        {props.cityInfo.daily.map((day, index) => (
+          <div className="week__item" key={index}>
+            <p className="week__item-date">
+              {new Date(day.dt * 1000).toLocaleString("ru", {
+                weekday: "short",
+                month: "numeric",
+                day: "numeric",
+              })}
+            </p>
+            <img
+              className="week__item-img"
+              src={`https://openweathermap.org/img/wn/${day.weather[0].icon}@2x.png`}
+              alt=""
+            />
+            <div className="week__item-temps">
+              <p className="week__item-temp">{Math.round(day.temp.min)}°</p>
+              <span>—</span>
+              <p className="week__item-temp">{Math.round(day.temp.max)}°</p>
+            </div>
+            <p className="week__item-desc">{day.weather[0].description}</p>
           </div>
-          <p className="week__item-desc">Облачно</p>
-        </div>
+        ))}
       </div>
     </div>
   );
 };
 
 export default Week;
+{
+  /*  */
+}

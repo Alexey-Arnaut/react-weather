@@ -2,6 +2,7 @@
     flex: 1;
     margin-left: 20px;
     height: 300px;
+    overflow: hidden;
 }
 
 .weather-info-inner {
@@ -10,12 +11,14 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    z-index: 1;
 }
 
 .weather__img {
     position: absolute;
     top: 0;
     right: 0;
+    z-index: -1;
 }
 
 .item {

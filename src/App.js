@@ -16,18 +16,22 @@ function App() {
   const [active, setActive] = useState(false);
 
   const getCity = async () => {
-    const getCoordsRes = await axios.get(
-      `https://api.openweathermap.org/data/2.5/weather?q=${value}&units=metric&lang=ru&appid=130e08eebdc4d5e263118a6f823cbd81`
-    );
-    const lat = getCoordsRes.data.coord.lat;
-    const lon = getCoordsRes.data.coord.lon;
+    try {
+      const getCoordsRes = await axios.get(
+        `https://api.openweathermap.org/data/2.5/weather?q=${value}&units=metric&lang=ru&appid=130e08eebdc4d5e263118a6f823cbd81`
+      );
+      const lat = getCoordsRes.data.coord.lat;
+      const lon = getCoordsRes.data.coord.lon;
 
-    const cityInfoRes = await axios.get(
-      `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&lang=ru&appid=130e08eebdc4d5e263118a6f823cbd81`
-    );
+      const cityInfoRes = await axios.get(
+        `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&units=metric&lang=ru&appid=130e08eebdc4d5e263118a6f823cbd81`
+      );
 
-    setCoords(getCoordsRes.data);
-    setCityInfo(cityInfoRes.data);
+      setCoords(getCoordsRes.data);
+      setCityInfo(cityInfoRes.data);
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const onChangeInput = (event) => {
@@ -64,7 +68,7 @@ function App() {
             <button onClick={() => setActive(!active)} className="main__button">
               {active ? "По часам" : "На 8 дней"}
             </button>
-            {active ? <Hours /> : <Week />}
+            {active ? <Hours cityInfo={cityInfo} /> : <Week cityInfo={cityInfo} />}
           </div>
         </main>
       )}
