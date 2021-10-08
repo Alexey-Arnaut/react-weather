@@ -1,0 +1,24 @@
+.today {
+    min-width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.today-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.today__info {
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.today__city {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #9B9B9B;
+}
