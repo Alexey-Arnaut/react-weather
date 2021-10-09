@@ -1,7 +1,6 @@
 .weather-info {
     flex: 1;
     margin-left: 20px;
-    height: 300px;
     overflow: hidden;
 }
 
@@ -11,6 +10,7 @@
     flex-direction: column;
     justify-content: space-between;
     height: 100%;
+    height: 260px;
     z-index: 1;
 }
 
@@ -21,17 +21,17 @@
     z-index: -1;
 }
 
-.item {
+.weather__item {
     display: flex;
     align-items: center;
 }
 
-.item-inner {
+.weather__item-inner {
     display: flex;
     align-items: center;
 }
 
-.item__icon {
+.weather__item-icon {
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -49,6 +49,6 @@
     }
 }
 
-.item__title {
+.weather__item-title {
     width: 140px;
 }

@@ -1,7 +1,5 @@
 import React, { useEffect, useRef } from "react";
 
-import "./hours.scss";
-
 const Hours = (props) => {
   const hoursInner = useRef();
 
@@ -24,10 +22,10 @@ const Hours = (props) => {
 
   return (
     <div className="hours container">
-      <div className="hours-inner" ref={hoursInner}>
+      <div className="hours-inner inner" ref={hoursInner}>
         {props.cityInfo.hourly.map((hour, index) => (
-          <div className="hours__item" key={index}>
-            <p className="hours__item-date">
+          <div className="hours__item item" key={index}>
+            <p className="hours__item-date item__date">
               {new Date(hour.dt * 1000).toLocaleString("ru", {
                 weekday: "short",
                 hour: "numeric",
@@ -35,11 +33,11 @@ const Hours = (props) => {
               })}
             </p>
             <img
-              className="hours__item-img"
+              className="hours__item-img item__img"
               src={`https://openweathermap.org/img/wn/${hour.weather[0].icon}@2x.png`}
               alt=""
             />
-            <div className="hours__item-temp">{Math.round(hour.temp)}°</div>
+            <div className="hours__item-temp item__temp">{Math.round(hour.temp)}°</div>
             <div className="hours__item-desc">
               {hour.weather[0].description}
             </div>

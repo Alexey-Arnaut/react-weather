@@ -14,6 +14,7 @@ function App() {
   const [coords, setCoords] = useState([]);
   const [cityInfo, setCityInfo] = useState([]);
   const [active, setActive] = useState(false);
+  const [error, setError] = useState(false);
 
   const getCity = async () => {
     try {
@@ -29,8 +30,9 @@ function App() {
 
       setCoords(getCoordsRes.data);
       setCityInfo(cityInfoRes.data);
+      setValue("");
     } catch (err) {
-      console.log(err);
+      setError(true);
     }
   };
 
@@ -60,6 +62,21 @@ function App() {
           </button>
         </div>
       </header>
+      <div className={error ? "error  error--active" : "error"}>
+        <div className="error-inner">
+          <div className="error-content container">
+            <button
+              onClick={() => setError(false)}
+              className="error__button"
+            ></button>
+            <h1 className="error__title">Ошибка!</h1>
+            <img src="img/error.png" alt="" />
+            <p className="error__subtitle">
+              Проверьте веденные данные или соединение с интернетом
+            </p>
+          </div>
+        </div>
+      </div>
       {cityInfo.length !== 0 && (
         <main className="main">
           <div className="main__wrapper">
