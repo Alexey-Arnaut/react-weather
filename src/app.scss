@@ -29,6 +29,10 @@ input {
     transition: 0.5s;
 }
 
+img {
+    max-width: 100%;
+}
+
 input::placeholder {
     color: #000000;
 }
@@ -115,6 +119,7 @@ input::placeholder {
     opacity: 0;
     pointer-events: none;
     transition: 0.5s;
+    z-index: 999;
 }
 
 .error--active {
