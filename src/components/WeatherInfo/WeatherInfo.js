@@ -47,22 +47,3 @@ const WeatherInfo = (props) => {
 };
 
 export default WeatherInfo;
-
-{
-  /* <div className="weather-info container">
-      <div className="weather-info-inner">
-        <img className="weather__img" src="img/clouds.webp"></img>
-        {items.map((item, index) => (
-          <div className="item" key={index}>
-            <div className="item-inner">
-              <div className="item__icon">
-                <img src={item.imgUrl} alt=""></img>
-              </div>
-              <p className="item__title">{item.title}</p>
-            </div>
-            <p className="item__info">{item.info}</p>
-          </div>
-        ))}
-      </div>
-    </div> */
-}

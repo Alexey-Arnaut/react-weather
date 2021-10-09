@@ -3,7 +3,6 @@ import React from "react";
 import "./week.scss";
 
 const Week = (props) => {
-  console.log(props);
   return (
     <div className="week container">
       <div className="week-inner">
@@ -35,6 +34,3 @@ const Week = (props) => {
 };
 
 export default Week;
-{
-  /*  */
-}

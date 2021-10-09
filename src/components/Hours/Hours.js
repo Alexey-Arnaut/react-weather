@@ -1,12 +1,30 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 
 import "./hours.scss";
 
 const Hours = (props) => {
-  console.log(props);
+  const hoursInner = useRef();
+
+  useEffect(() => {
+    const hoursInnerCurrent = hoursInner.current;
+
+    if (hoursInnerCurrent) {
+      const scrollingItems = (event) => {
+        hoursInnerCurrent.scrollTo({
+          left: hoursInnerCurrent.scrollLeft + event.deltaY * 8,
+          behavior: "smooth",
+        });
+      };
+      hoursInnerCurrent.addEventListener("wheel", scrollingItems);
+
+      return () =>
+        hoursInnerCurrent.removeEventListener("wheel", scrollingItems);
+    }
+  });
+
   return (
     <div className="hours container">
-      <div className="hours-inner">
+      <div className="hours-inner" ref={hoursInner}>
         {props.cityInfo.hourly.map((hour, index) => (
           <div className="hours__item" key={index}>
             <p className="hours__item-date">

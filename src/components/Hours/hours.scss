@@ -1,8 +1,12 @@
+.hours {
+    overflow: hidden;
+}
+
 .hours-inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    overflow: hidden;
+    overflow: scroll;
 }
 
 .hours__item {
@@ -24,7 +28,7 @@
 }
 
 .hours__item-date {
-    font-size: 22px; 
+    font-size: 22px;
     font-weight: 700;
 }
 

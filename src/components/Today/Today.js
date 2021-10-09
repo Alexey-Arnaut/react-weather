@@ -8,10 +8,18 @@ const Today = (props) => {
       <div className="today-inner">
         <div className="today__info">
           <p className="today__info-text">Сейчас</p>
-          <p className="today__info-temp">{Math.floor(props.cityInfo.hourly[0].temp)}&deg;</p>
-          <div className="today__info-desc">{props.cityInfo.hourly[0].weather[0].description}</div>
+          <p className="today__info-temp">
+            {Math.floor(props.cityInfo.hourly[0].temp)}&deg;
+          </p>
+          <div className="today__info-desc">
+            {props.cityInfo.hourly[0].weather[0].description}
+          </div>
         </div>
-        <img className="today__icon" src={`https://openweathermap.org/img/wn/${props.cityInfo.hourly[0].weather[0].icon}@2x.png`} alt=""></img>
+        <img
+          className="today__icon"
+          src={`https://openweathermap.org/img/wn/${props.cityInfo.hourly[0].weather[0].icon}@2x.png`}
+          alt=""
+        ></img>
       </div>
       <p className="today__city">Город: {props.coords.name}</p>
     </div>

@@ -39,7 +39,9 @@ function App() {
   };
 
   return (
-    <div className="wrapper">
+    <div
+      className={cityInfo.length !== 0 ? "wrapper" : "wrapper wrapper--active"}
+    >
       <header className="header">
         <div className="header__logo">
           <img className="header__logo-img" src="img/logo.svg" alt="" />
@@ -68,7 +70,11 @@ function App() {
             <button onClick={() => setActive(!active)} className="main__button">
               {active ? "По часам" : "На 8 дней"}
             </button>
-            {active ? <Hours cityInfo={cityInfo} /> : <Week cityInfo={cityInfo} />}
+            {active ? (
+              <Hours cityInfo={cityInfo} />
+            ) : (
+              <Week cityInfo={cityInfo} />
+            )}
           </div>
         </main>
       )}
@@ -77,7 +83,3 @@ function App() {
 }
 
 export default App;
-
-{
-  /*  */
-}

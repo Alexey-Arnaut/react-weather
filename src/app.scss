@@ -41,7 +41,13 @@ input::placeholder {
     padding: 15px;
 }
 
+.wrapper--active {
+    align-items: center;
+    justify-content: center;
+}
+
 .header {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -49,6 +55,7 @@ input::placeholder {
     padding: 20px;
     border-radius: 20px;
     box-shadow: 0px 14px 30px rgba(0, 0, 0, 0.05);
+    animation: show 1s forwards;
 }
 
 .header__logo {
